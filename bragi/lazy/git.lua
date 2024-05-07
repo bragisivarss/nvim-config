@@ -12,6 +12,31 @@ return {
 
     config = function()
         local neogit = require("neogit")
+
+        vim.keymap.set("n", "<leader>gs", neogit.open,
+            { silent = true, noremap = true }
+        )
+
+        vim.keymap.set("n", "<leader>gc", ":Neogit commit<CR>",
+            { silent = true, noremap = true }
+        )
+
+        vim.keymap.set("n", "<leader>gP", ":Neogit pull<CR>",
+            { silent = true, noremap = true }
+        )
+
+        vim.keymap.set("n", "<leader>gp", ":Neogit push<CR>",
+            { silent = true, noremap = true }
+        )
+
+        vim.keymap.set("n", "<leader>gb", ":Telescope git_branches<CR>",
+            { silent = true, noremap = true }
+        )
+
+        vim.keymap.set("n", "<leader>gB", ":G blame<CR>",
+            { silent = true, noremap = true }
+        )
+
         neogit.setup {
             -- Hides the hints at the top of the status buffer
             disable_hint = false,
@@ -128,7 +153,7 @@ return {
                 -- The diffview integration enables the diff popup.
                 --
                 -- Requires you to have `sindrets/diffview.nvim` installed.
-                diffview = nil,
+                diffview = true,
 
                 -- If enabled, uses fzf-lua for menu selection. If the telescope integration
                 -- is also selected then telescope is used instead
